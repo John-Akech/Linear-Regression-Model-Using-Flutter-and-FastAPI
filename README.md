@@ -67,7 +67,7 @@ You can explore the API and try it out using Swagger UI.
 
 # YouTube Video Demo
 
-Watch the demo of the project on YouTube: Project Demo - 2 Minute Overview
+Watch the demo of the project on YouTube: https://youtu.be/Lu_iZfWQk_0
 
 # Running the Mobile App
 
