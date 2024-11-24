@@ -65,13 +65,13 @@ Response Codes:
 Swagger UI:
 You can explore the API and try it out using Swagger UI.
 
-YouTube Video Demo
+# YouTube Video Demo
 Watch the demo of the project on YouTube: Project Demo - 2 Minute Overview
 
-Running the Mobile App
+# Running the Mobile App
 Follow these steps to run the mobile app on your local machine:
 
-Prerequisites:
+# Prerequisites:
 Install Flutter on your machine.
 Ensure that you have an Android/iOS device or emulator available for testing.
 Clone the repository: 
