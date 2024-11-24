@@ -66,24 +66,37 @@ Swagger UI:
 You can explore the API and try it out using Swagger UI.
 
 # YouTube Video Demo
+
 Watch the demo of the project on YouTube: Project Demo - 2 Minute Overview
 
 # Running the Mobile App
+
 Follow these steps to run the mobile app on your local machine:
 
 # Prerequisites:
+
 Install Flutter on your machine.
+
 Ensure that you have an Android/iOS device or emulator available for testing.
+
 Clone the repository: 
+
 git clone
 
 Install Dependencies:
+
 Run the following command to install the required dependencies:
+
 flutter pub get
+
 Run the App:
+
 To run the app on your connected device or emulator, use the following command:
+
 flutter run
+
 Ensure that your device/emulator is set up properly and connected before running the app.
 
-Contributing
+Contributing:
+
 If you want to contribute to the project, feel free to open an issue or submit a pull request.
