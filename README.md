@@ -81,7 +81,7 @@ Follow these steps to run the mobile app on your local machine:
 
 - Clone the repository: 
 
-git clone
+git clone git@github.com:John-Akech/Linear-Regression-Model-Using-Flutter-and-FastAPI.git
 
 - Install Dependencies:
 
