@@ -75,28 +75,28 @@ Follow these steps to run the mobile app on your local machine:
 
 # Prerequisites:
 
-Install Flutter on your machine.
+- Install Flutter on your machine.
 
-Ensure that you have an Android/iOS device or emulator available for testing.
+- Ensure that you have an Android/iOS device or emulator available for testing.
 
-Clone the repository: 
+- Clone the repository: 
 
 git clone
 
-Install Dependencies:
+- Install Dependencies:
 
 Run the following command to install the required dependencies:
 
-flutter pub get
+- flutter pub get
 
-Run the App:
+# Run the App:
 
-To run the app on your connected device or emulator, use the following command:
+- To run the app on your connected device or emulator, use the following command:
 
 flutter run
 
-Ensure that your device/emulator is set up properly and connected before running the app.
+- Ensure that your device/emulator is set up properly and connected before running the app.
 
 Contributing:
 
-If you want to contribute to the project, feel free to open an issue or submit a pull request.
+- If you want to contribute to the project, feel free to open an issue or submit a pull request.
