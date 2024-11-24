@@ -15,9 +15,14 @@ class _PredictorPageState extends State<PredictorPage> {
   final TextEditingController _physicalActivityController = TextEditingController();
 
   String _predictionResult = '';
+  final _formKey = GlobalKey<FormState>();
 
   Future<void> _predict() async {
-    final url = Uri.parse('http://10.0.2.2:8000/predict'); // Emulator URL
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
+
+    final url = Uri.parse('https://linear-regression-model-using-flutter.onrender.com/predict'); // Replace with your API URL in production
     try {
       final response = await http.post(
         url,
@@ -54,42 +59,90 @@ class _PredictorPageState extends State<PredictorPage> {
       appBar: AppBar(title: Text('Mental Health Predictor')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TextField(
-              controller: _ageController,
-              decoration: InputDecoration(labelText: 'Age'),
-              keyboardType: TextInputType.number,
-            ),
-            TextField(
-              controller: _stressLevelController,
-              decoration: InputDecoration(labelText: 'Stress Level (0-10)'),
-              keyboardType: TextInputType.numberWithOptions(decimal: true),
-            ),
-            TextField(
-              controller: _depressionScoreController,
-              decoration: InputDecoration(labelText: 'Depression Score (0-10)'),
-              keyboardType: TextInputType.numberWithOptions(decimal: true),
-            ),
-            TextField(
-              controller: _anxietyScoreController,
-              decoration: InputDecoration(labelText: 'Anxiety Score (0-10)'),
-              keyboardType: TextInputType.numberWithOptions(decimal: true),
-            ),
-            TextField(
-              controller: _physicalActivityController,
-              decoration: InputDecoration(labelText: 'Physical Activity (0=Low, 1=Moderate, 2=High)'),
-              keyboardType: TextInputType.number,
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _predict,
-              child: Text('Predict Sleep Quality'),
-            ),
-            SizedBox(height: 20),
-            Text(_predictionResult),
-          ],
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextFormField(
+                controller: _ageController,
+                decoration: InputDecoration(labelText: 'Age'),
+                keyboardType: TextInputType.number,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your age';
+                  }
+                  if (int.tryParse(value) == null) {
+                    return 'Please enter a valid number';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                controller: _stressLevelController,
+                decoration: InputDecoration(labelText: 'Stress Level (0-10)'),
+                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a stress level';
+                  }
+                  if (double.tryParse(value) == null) {
+                    return 'Please enter a valid number';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                controller: _depressionScoreController,
+                decoration: InputDecoration(labelText: 'Depression Score (0-10)'),
+                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a depression score';
+                  }
+                  if (double.tryParse(value) == null) {
+                    return 'Please enter a valid number';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                controller: _anxietyScoreController,
+                decoration: InputDecoration(labelText: 'Anxiety Score (0-10)'),
+                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter an anxiety score';
+                  }
+                  if (double.tryParse(value) == null) {
+                    return 'Please enter a valid number';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                controller: _physicalActivityController,
+                decoration: InputDecoration(labelText: 'Physical Activity (0=Low, 1=Moderate, 2=High)'),
+                keyboardType: TextInputType.number,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a physical activity level';
+                  }
+                  if (int.tryParse(value) == null || int.parse(value) < 0 || int.parse(value) > 2) {
+                    return 'Please enter a valid number between 0 and 2';
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: _predict,
+                child: Text('Predict Sleep Quality'),
+              ),
+              SizedBox(height: 20),
+              Text(_predictionResult),
+            ],
+          ),
         ),
       ),
     );
