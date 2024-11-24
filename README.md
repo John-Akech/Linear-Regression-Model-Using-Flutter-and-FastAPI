@@ -21,7 +21,7 @@ The model is trained using a dataset based on a **Students Mental Health Survey*
 
 The app communicates with the following publicly available API endpoint to get predictions:
 
-**API URL:** [https://linear-regression-model-using-flutter.onrender.com/predict](https://linear-regression-model-using-flutter.onrender.com/predict)
+**API URL:** [https://linear-regression-model-using-flutter.onrender.com/predict](https://linear-regression-model-using-flutter.onrender.com)
 
 ### Request Example:
 
